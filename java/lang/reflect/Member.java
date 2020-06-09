@@ -43,6 +43,9 @@ interface Member {
      * Identifies the set of all public members of a class or interface,
      * including inherited members.
      */
+    /*
+        标识集合类或接口，包括继承的成员的所有公共成员。
+     */
     public static final int PUBLIC = 0;
 
     /**

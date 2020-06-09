@@ -49,6 +49,12 @@ import java.io.ObjectStreamField;
  * @see java.net.ServerSocket
  * @since 1.4
  */
+/*
+    这个类实现一个IP socket 地址（IP地址+端口号），它也可以是一对（主机名+端口号），在这种情况下，将尝试解析主机名。
+    如果再解析失败的地址被认为是未解决的 ，但仍然可以在一些特殊情况，如通过代理连接使用。
+    它提供了用于结合，连接使用的插座不可变对象，或作为返回值。
+    通配符是一个特殊的本地IP地址。 它通常表示“任何”，只能用于bind操作。
+ */
 public class InetSocketAddress
     extends SocketAddress
 {

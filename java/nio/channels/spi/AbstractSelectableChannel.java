@@ -285,6 +285,8 @@ public abstract class AbstractSelectableChannel
         调整此通道的阻止模式。
         如果给定的阻塞模式是与当前的阻塞模式不同，则此方法调用implConfigureBlocking方法，同时保持适当的锁，以改变模式
         如果与当前的阻塞模式相同直接返回
+
+        true：阻塞的    false：非阻塞的
      */
     public final SelectableChannel configureBlocking(boolean block)
         throws IOException

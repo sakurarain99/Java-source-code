@@ -616,6 +616,23 @@ public abstract class FileChannel
      * @throws  IOException
      *          If some other I/O error occurs
      */
+    /*
+        将这个FileChannel关联的文件中的字节(内容)传递到给定的可写的ByteChannel当中
+
+        试图读取count个字节从给定的position位置开始，并将其字节信息写入目标通道(channel)。此方法的调用可以或可以不传输所有请求的字节;
+        它是否这样做取决于通道的性质和状态。比所请求的字节数要少的字节会被传递(这个channel的文件包含了比count更少的字节，比如channel关联
+        的文件只有20个字节而count却大于20则会被传递)，或者目标Channel是非阻塞的他拥有比count更少的可用的字节在Buffer当中
+        此方法不修改这个FileChannel的位置。 如果给定的position大于该文件的当前大小则不传输字节。如果目标Channel有一个position那么就会从指定
+        的position的位置开始写入，然后将position由写入的字节数递增。
+
+        这种方法可能比一个简单的循环 例如读取这个channel的数据然后写入到目标channel中效率要更高一些。
+        很多操作系统可以从文件系统缓存当中将字节直接写到目标channel当中，而无需拷贝它。
+
+        params：
+            position - 传输的起始位置; 必须为非负
+            count - 要传输的字节的最大数量; 必须为非负
+            target - 目标channel
+     */
     public abstract long transferTo(long position, long count,
                                     WritableByteChannel target)
         throws IOException;

@@ -65,7 +65,12 @@ import sun.security.action.GetPropertyAction;
  * @author JSR-51 Expert Group
  * @since 1.4
  */
-
+/*
+    服务提供者类选择器和可选择通道。
+    这个类是选择器提供者，它具有一个无参数构造并实现以下指定的抽象方法的一个具体的子类。 Java虚拟机的给定调用维护单个系统级默认提供程序实例，这是由返回的provider的方法。 根据下列说明该方法的第一次调用将找到默认提供。
+    全系统默认提供由静态开放方法使用DatagramChannel ， Pipe ， Selector ， ServerSocketChannel和SocketChannel类。 它也可以用来由System.inheritedChannel()方法。 程序可以通过实例化提供程序，然后直接调用这个类中定义的开放方法使用比默认提供商之外的提供商。
+    所有的在这个类中的方法是由多个并发线程安全使用
+ */
 public abstract class SelectorProvider {
 
     private static final Object lock = new Object();

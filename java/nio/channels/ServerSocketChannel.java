@@ -104,6 +104,11 @@ public abstract class ServerSocketChannel
      * @throws  IOException
      *          If an I/O error occurs
      */
+    /*
+        打开一个服务器socket通道。
+        新的ServerSocketChannel是通过调用创建openServerSocketChannel全系统默认的方法SelectorProvider对象。
+        新通道的socket最初是未绑定的; 它必须通过它的socket的一个被绑定到特定地址的bind方法之前，连接可以被接受
+     */
     public static ServerSocketChannel open() throws IOException {
         return SelectorProvider.provider().openServerSocketChannel();
     }

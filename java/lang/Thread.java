@@ -244,15 +244,24 @@ class Thread implements Runnable {
     /**
      * The minimum priority that a thread can have.
      */
+    /*
+        最低优先级。
+     */
     public final static int MIN_PRIORITY = 1;
 
    /**
      * The default priority that is assigned to a thread.
      */
+   /*
+        默认优先级。
+    */
     public final static int NORM_PRIORITY = 5;
 
     /**
      * The maximum priority that a thread can have.
+     */
+    /*
+        最大优先级。
      */
     public final static int MAX_PRIORITY = 10;
 
@@ -695,6 +704,11 @@ class Thread implements Runnable {
      *               started.
      * @see        #run()
      * @see        #stop()
+     */
+    /*
+        使该线程开始执行; Java虚拟机调用run该线程的方法。
+        结果是两个线程同时运行：当前线程（从调用返回start方法）和另一个线程（执行其run方法）。
+        这是从来没有的法律，以启动一个线程不止一次。 特别是，一个线程可能无法一旦完成执行重新启动。
      */
     public synchronized void start() {
         /**

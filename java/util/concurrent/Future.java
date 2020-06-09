@@ -93,6 +93,16 @@ package java.util.concurrent;
  * @author Doug Lea
  * @param <V> The result type returned by this Future's {@code get} method
  */
+/*
+    Future 表示异步的情况下某一个操作会返回一个Future对象，这个操作什么时候完成我们可以通过
+    Future里的isDone()方法(是否完成了)
+
+
+    Future 代表的是异步计算的结果，Future 提供了检查计算是否完成、等待计算完成以及检索计算结果的方法。
+    只有在计算完成时，才能使用get方法检索结果，如果需要，可以阻塞直到它准备好。取消是通过cancel()(取消方法)执行的。
+    提供了其他方法来确定任务是正常完成还是被取消。一旦计算完成，就不能取消计算。如果希望使用Future针对于取消这个目的，但没有提供可用的结果，
+    则可以声明Future<？>形式的Future返回一个null，作为底层任务的结果。
+ */
 public interface Future<V> {
 
     /**
@@ -135,6 +145,9 @@ public interface Future<V> {
      *
      * @return {@code true} if this task completed
      */
+    /*
+        是否完成了，返回boolean
+     */
     boolean isDone();
 
     /**
@@ -147,6 +160,9 @@ public interface Future<V> {
      * exception
      * @throws InterruptedException if the current thread was interrupted
      * while waiting
+     */
+    /*
+        完成之后，可以通过 此方法将对应的结果取出来
      */
     V get() throws InterruptedException, ExecutionException;
 

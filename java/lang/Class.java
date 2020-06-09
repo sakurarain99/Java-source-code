@@ -389,6 +389,9 @@ public final class Class<T> implements java.io.Serializable,
      *          s.checkPackageAccess()} denies access to the package
      *          of this class.
      */
+    /*
+        创建目标类实例的时候，只能通过目标类的无参构造来创建
+     */
     @CallerSensitive
     public T newInstance()
         throws InstantiationException, IllegalAccessException
@@ -2332,6 +2335,10 @@ public final class Class<T> implements java.io.Serializable,
      *
      * <p> Default policy: allow all clients access with normal Java access
      * control.
+     */
+    /*
+        检查是否允许客户端访问成员。如果访问被拒绝，则抛出SecurityException。 此方法还强制执行程序包访问。
+        默认策略：允许所有客户端使用常规Java访问控制访问
      */
     private void checkMemberAccess(int which, Class<?> caller, boolean checkProxyInterfaces) {
         final SecurityManager s = System.getSecurityManager();
